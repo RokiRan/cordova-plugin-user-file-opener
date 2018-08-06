@@ -1,0 +1,11 @@
+{
+    "name": "HGFileOpenerPlugin",
+    "version": "1.0.0",
+    "cordova": {
+        "id": "cordova-plugin-hg-file-opener",
+        "platform": [
+            "android"
+        ]
+    },
+    "description": "cordova plugin for andriod app update."
+}

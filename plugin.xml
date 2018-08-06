@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="cordova-plugin-hg-file-opener"
+    version="1.0.0">
+    <name>HGFileOpenerPlugin</name>
+    <description>cordova plugin for andriod app update.</description>
+    <keywords></keywords>
+ 
+    <!-- android -->
+    <platform name="android">
+      <js-module src="www/plugin.js" name="plugin">
+        <runs/>
+        <clobbers target="HGFileOpenerPlugin" />
+      </js-module>
+        
+      <config-file target="res/xml/config.xml" parent="/*">
+        <feature name="HGFileOpenerPlugin">
+          <param name="android-package" value="com.caile.user.file.HGFileOpenerPlugin" />
+        </feature>
+      </config-file>
+        
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <provider android:name="android.support.v4.content.FileProvider"
+                      android:authorities="com.caile.user.file.fileprovider"
+                      android:grantUriPermissions="true"
+                      android:exported="false">
+                <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
+                           android:resource="@xml/file_paths" />
+            </provider>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+          <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+      </config-file>
+ 
+      <source-file src="src/android/HGFileOpenerPlugin.java" target-dir="src/com/caile/user/file" />
+        <source-file src="src/android/file_paths.xml" target-dir="res/xml" />
+    </platform>
+</plugin>
